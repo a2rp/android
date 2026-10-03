@@ -1,6 +1,20 @@
-# Android Development with Java and XML
+# Android Study Notes with Java and XML
 
-This is my Android learning notebook, built while studying and working with the technology. It focuses on the core skills needed to build a complete app with Java and XML, with each chapter added step by step.
+This repository is my personal set of Android study notes. I write here while learning and working with Android, so the ideas, explanations, code snippets, and questions I find useful stay together and are easy for me to revisit.
+
+The notes help me build and retain an understanding of Android's core concepts. I explain topics in my own words, record how important parts fit together, and keep Java and XML examples beside the concepts they illustrate. When a small practice example helps me understand something, I include it as part of my notes.
+
+## Scope
+
+These notes focus on core Android development with Java and XML. The sections group related subjects—from the first app and Android project structure through app components, layouts, data, networking, background work, testing, and release. Kotlin is not included because I have not studied it.
+
+## How these notes are organized
+
+- **Topic notes** collect explanations, terminology, APIs, and observations from my study and project work.
+- **Code samples** gather the Java and XML snippets I want to find and review again.
+- **Questions and answers** keep useful questions together with the explanations I have worked out.
+
+The chapter list is an index for organizing my notes, not a promise that every section is already complete. I will add and improve the material as I study each subject, test ideas in Android projects, and learn more. These are personal learning notes, so I may revisit earlier explanations and examples as my understanding develops.
 
 ## Core topics
 
@@ -21,8 +35,6 @@ This is my Android learning notebook, built while studying and working with the 
 15. [Testing, debugging, and release](chapters/15-debugging-testing-and-release.md)
 16. [All code samples](chapters/98-all-code-samples.md)
 17. [Complete Q&A](chapters/99-complete-q-and-a.md)
-
-The course outline is ready first. I will add the lessons one chapter at a time, with clear explanations and hands-on examples.
 
 ## Links
 
