@@ -1,8 +1,8 @@
 # 17. Complete Q&A
 
-[Back to course index](../README.md)
+[Back to notes index](../README.md)
 
 ---
 
-[Previous: All code samples](98-all-code-samples.md) | [Course index](../README.md) | [Next: Course index](../README.md)
+[Previous: All code samples](98-all-code-samples.md) | [Notes index](../README.md) | [Next: Notes index](../README.md)
 
