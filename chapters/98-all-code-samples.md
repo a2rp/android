@@ -2,6 +2,9 @@
 
 [Back to notes index](../README.md)
 
+| [Previous: Testing, debugging, and release](15-debugging-testing-and-release.md) | [Notes index](../README.md) | [Next: Complete Q&A](99-complete-q-and-a.md) |
+|:--|:--:|--:|
+
 This chapter gathers the fenced examples from the topic notes in one place. Each example keeps its original language tag and is grouped by the chapter and section where I first recorded it. Read the linked section when you need its explanation or surrounding setup.
 
 The examples cover Java, XML, Gradle, JSON, and the command-line checks used across these notes. Some snippets are focused excerpts and rely on the resources, IDs, dependencies, or classes described in their source section.
@@ -2366,4 +2369,5 @@ android {
 
 ---
 
-[Previous: Testing, debugging, and release](15-debugging-testing-and-release.md) | [Notes index](../README.md) | [Next: Complete Q&A](99-complete-q-and-a.md)
+| [Previous: Testing, debugging, and release](15-debugging-testing-and-release.md) | [Notes index](../README.md) | [Next: Complete Q&A](99-complete-q-and-a.md) |
+|:--|:--:|--:|
