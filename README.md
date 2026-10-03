@@ -14,7 +14,7 @@ These notes focus on core Android development with Java and XML. The sections gr
 - **Code samples** gather the Java and XML snippets I want to find and review again.
 - **Questions and answers** keep useful questions together with the explanations I have worked out.
 
-The chapter list is an index for organizing my notes, not a promise that every section is already complete. I will add and improve the material as I study each subject, test ideas in Android projects, and learn more. These are personal learning notes, so I may revisit earlier explanations and examples as my understanding develops.
+The first 15 chapters cover Android fundamentals through accessibility, testing, and release. Chapter 16 gathers the code examples from those topics, and Chapter 17 brings the main questions and answers together. Each topic chapter links to its neighboring chapters and back to this index.
 
 ## Core topics
 
@@ -38,9 +38,9 @@ The chapter list is an index for organizing my notes, not a promise that every s
 
 ## Learning in practice
 
-These topics are the areas I study and return to while working with Android. As I work through each one, I add explanations, code snippets, and practical observations to its chapter. The final code-samples and Q&A sections make it easier for me to review useful examples and questions across my notes.
+I use these notes to revisit concepts and practical patterns from my Android study and work. Examples stay close to the topic they explain, while the code-samples and Q&A chapters make review easier.
 
-This collection will grow with my experience. I update the notes as I try ideas in projects, revisit concepts, and find clearer ways to explain what I have learned.
+I refine explanations and examples as I test them in projects and build on what I have learned.
 
 ## Links
 
