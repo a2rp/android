@@ -6,7 +6,7 @@ The notes help me build and retain an understanding of Android's core concepts. 
 
 ## Scope
 
-These notes focus on core Android development with Java and XML. The sections group related subjects—from the first app and Android project structure through app components, layouts, data, networking, background work, testing, and release. Kotlin is not included because I have not studied it.
+These notes focus on core Android development with Java and XML. The sections group related subjects, from the first app and Android project structure through app components, layouts, data, networking, background work, testing, and release. Kotlin is not included because I have not studied it.
 
 ## How these notes are organized
 
