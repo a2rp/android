@@ -1,9 +1,201 @@
 # 5. XML layouts, views, themes, and View Binding
 
-[Back to course index](../README.md)
+[Back to notes index](../README.md)
 
----
+| [Previous: Activities and the Android lifecycle](04-activities-and-lifecycle.md) | [Notes index](../README.md) | [Next: Events, forms, and validation](06-events-forms-and-validation.md) |
+|:--|:--:|--:|
 
-[Previous: Activities and the Android lifecycle](04-activities-and-lifecycle.md) | [Course index](../README.md) | [Next: Events, forms, and validation](06-events-forms-and-validation.md)
+## Layouts describe a view hierarchy
+
+A view-based screen is a tree. A `View` draws part of the screen or receives interaction. A `ViewGroup` is a container that measures and positions child views. `TextView`, `EditText`, `Button`, and `ImageView` are common views. `LinearLayout`, `FrameLayout`, and `ConstraintLayout` are common containers.
+
+An XML layout has one root element. Its child elements form the rest of the hierarchy. XML keeps the screen structure separate from Java behavior, while the activity inflates the layout and connects events or data to it.
+
+```text
+LinearLayout
+├── TextView
+├── EditText
+└── Button
+```
+
+The parent container controls how its children are laid out. Attributes beginning with `layout_` are interpreted by the parent, so a child can have different layout parameters under different parents.
+
+## Choosing a layout container
+
+| Container | Useful when | Things to remember |
+| --- | --- | --- |
+| `LinearLayout` | Items form one row or one column. | Set `android:orientation`. Avoid deep chains of nested layouts. |
+| `FrameLayout` | One child fills an area, or children need to overlap. | Later children can draw above earlier children. |
+| `ConstraintLayout` | Several views need flexible positions relative to the parent or other views. | Each view needs enough constraints to determine its position and size. |
+
+`ConstraintLayout` comes from AndroidX. Use it when the project has the matching dependency. For a short vertical screen, `LinearLayout` is often easier to read. The layout choice should keep the hierarchy clear and adapt to the available screen size.
+
+## Size, spacing, and text dimensions
+
+- `match_parent` asks a child to use the size available from its parent.
+- `wrap_content` asks a child to use the size needed by its content.
+- `dp` is a density-independent unit for layout size and spacing.
+- `sp` is a scalable unit for text size and respects the user's font-size preference.
+- Padding is inside a view's boundary. Margin is space around a child, set by its parent layout parameters.
+
+In `ConstraintLayout`, `0dp` means match the available space between constraints. In other containers, `0dp` can mean an actual zero dimension or be interpreted with layout-specific rules. Read the parent layout's behavior before copying dimensions.
+
+## A small XML screen
+
+This layout has a title, an input field, and a button. Text is referenced from resources instead of being fixed in the layout.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/screen_title"
+        style="@style/StudyApp.Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/screen_title" />
+
+    <EditText
+        android:id="@+id/topic_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/topic_hint"
+        android:inputType="textCapSentences" />
+
+    <Button
+        android:id="@+id/save_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/save_topic" />
+
+</LinearLayout>
+```
+
+The `@+id/name` form creates an ID the first time it is used. Later references use `@id/name`. Names such as `screen_title` become Java fields such as `screenTitle` when View Binding is generated.
+
+The referenced strings belong in `res/values/strings.xml`:
+
+```xml
+<resources>
+    <string name="screen_title">Topics I am studying</string>
+    <string name="topic_hint">Enter a topic</string>
+    <string name="save_topic">Save topic</string>
+</resources>
+```
+
+## Styles and themes
+
+A style is a group of appearance attributes for an individual view. A theme is a group of attributes available across an app, an activity, or a view hierarchy. The app theme can provide shared colors, typography, and window settings. A view style can reuse a common text size or other view attributes.
+
+For example, this style can be placed in a `res/values/styles.xml` or an existing style resource file:
+
+```xml
+<resources>
+    <style name="StudyApp.Heading">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
+```
+
+The layout applies it with `style="@style/StudyApp.Heading"`. Keep the theme parent and existing theme setup generated by the project unless there is a reason to change them. Theme parents can depend on the UI libraries included by the app.
+
+Colors are easier to maintain when their roles are named in resources, such as a primary color, a surface color, and text on that surface. For light and dark appearances, the project can keep matching resource values under `values/` and `values-night/`. Avoid choosing a fixed text or background color that becomes unreadable in the other appearance. Full contrast and accessibility checks are in the accessibility notes.
+
+## View Binding
+
+View Binding generates a binding class for each XML layout in a module. The class contains references to views that have IDs. This replaces repeated `findViewById()` calls for those views and gives Java code direct fields.
+
+Enable View Binding in the app module build file. This example uses the Groovy syntax for `app/build.gradle`; match the syntax already used by the project:
+
+```groovy
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+```
+
+For `activity_main.xml`, the generated class is `ActivityMainBinding`. A Java activity can inflate it and use its fields:
+
+```java
+package com.example.studyapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+
+import com.example.studyapp.databinding.ActivityMainBinding;
+
+public class MainActivity extends Activity {
+    private ActivityMainBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.saveTopic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String topic = binding.topicInput.getText().toString().trim();
+                if (!topic.isEmpty()) {
+                    binding.screenTitle.setText(topic);
+                }
+            }
+        });
+    }
+}
+```
+
+The generated package in the import follows the module namespace. The generated class and field names come from the layout file and view IDs. When the XML or an ID changes, Gradle must rebuild the generated binding before the new field appears. If the binding class is unresolved, check that View Binding is enabled, the layout has no XML errors, and the ID spelling is correct.
+
+## Quick comparison
+
+| Access approach | What I use it for |
+| --- | --- |
+| `findViewById()` | A direct lookup in a layout when View Binding is not enabled. |
+| View Binding | Typed references to identified views in an XML layout. It does not add expressions or business logic to XML. |
+| Data Binding | A separate library with binding expressions and additional setup. It is not needed for the examples in these notes. |
+
+## Layout and theme checks
+
+- Make sure every view has both `layout_width` and `layout_height`.
+- Give each view a clear ID when Java needs to read or update it.
+- Keep string text in string resources and reuse styles for repeated appearance.
+- Use `dp` for dimensions and `sp` for text.
+- Check that the layout remains usable with longer text, larger system fonts, and a narrow screen.
+- If a view appears in one layout variant but not another, account for that difference in code.
+- Inspect the rendered hierarchy with Android Studio's Layout Inspector when spacing differs from expectations.
+
+## Practice: add a topic
+
+Use the XML screen and binding example to read the text entered in `topic_input`. When the button is tapped, show that topic in the heading. If the input is empty, leave the heading unchanged. Then switch the device appearance and check that the screen colors remain readable.
+
+This exercise connects an XML hierarchy, IDs, string resources, a style, generated binding fields, and a Java click listener.
+
+## Notes to remember
+
+- XML describes a view hierarchy. Java controls its behavior.
+- The parent `ViewGroup` determines how each child is measured and positioned.
+- A style is for view appearance. A theme provides attributes across a larger UI scope.
+- View Binding generates Java references from layouts and IDs.
+- Check the generated class name from the layout file name, not from the activity name.
+- Test layouts with different text sizes and screen widths.
+
+## References
+
+- [Layouts in Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+- [View Binding](https://developer.android.com/topic/libraries/view-binding)
+- [Styles and themes](https://developer.android.com/develop/ui/views/theming/themes)
+- [Dark theme](https://developer.android.com/develop/ui/views/theming/darktheme)
 
 
