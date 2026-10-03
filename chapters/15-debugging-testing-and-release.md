@@ -2,7 +2,8 @@
 
 [Back to notes index](../README.md)
 
-[Previous: Accessibility and adaptive layouts](14-accessibility-and-adaptive-ui.md) | [Notes index](../README.md) | [Next: All code samples](98-all-code-samples.md)
+| [Previous: Accessibility and adaptive layouts](14-accessibility-and-adaptive-ui.md) | [Notes index](../README.md) | [Next: All code samples](98-all-code-samples.md) |
+|:--|:--:|--:|
 
 These notes cover ways to check Android app behavior, trace problems, and prepare a release build. The examples use Java, Android Views, Android Studio, and Gradle.
 
@@ -210,6 +211,7 @@ Before sharing a release build, check the following:
 
 ---
 
-[Previous: Accessibility and adaptive layouts](14-accessibility-and-adaptive-ui.md) | [Notes index](../README.md) | [Next: All code samples](98-all-code-samples.md)
+| [Previous: Accessibility and adaptive layouts](14-accessibility-and-adaptive-ui.md) | [Notes index](../README.md) | [Next: All code samples](98-all-code-samples.md) |
+|:--|:--:|--:|
 
 
