@@ -36,6 +36,12 @@ The chapter list is an index for organizing my notes, not a promise that every s
 16. [All code samples](chapters/98-all-code-samples.md)
 17. [Complete Q&A](chapters/99-complete-q-and-a.md)
 
+## Learning in practice
+
+These topics are the areas I study and return to while working with Android. As I work through each one, I add explanations, code snippets, and practical observations to its chapter. The final code-samples and Q&A sections make it easier for me to review useful examples and questions across my notes.
+
+This collection will grow with my experience. I update the notes as I try ideas in projects, revisit concepts, and find clearer ways to explain what I have learned.
+
 ## Links
 
 - Portfolio: https://www.ashishranjan.net
