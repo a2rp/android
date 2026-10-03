@@ -2,7 +2,8 @@
 
 [Back to notes index](../README.md)
 
-[Previous: Permissions and Android device features](13-permissions-and-device-features.md) | [Notes index](../README.md) | [Next: Debugging, testing, and release](15-debugging-testing-and-release.md)
+| [Previous: Permissions and Android device features](13-permissions-and-device-features.md) | [Notes index](../README.md) | [Next: Debugging, testing, and release](15-debugging-testing-and-release.md) |
+|:--|:--:|--:|
 
 Accessibility and adaptive design make an app easier to use with different abilities, input methods, font settings, and window sizes. These notes focus on Java and XML layouts built with Android Views.
 
@@ -247,5 +248,6 @@ Automated checks can catch some issues, but manually using the screen with acces
 
 ---
 
-[Previous: Permissions and Android device features](13-permissions-and-device-features.md) | [Notes index](../README.md) | [Next: Debugging, testing, and release](15-debugging-testing-and-release.md)
+| [Previous: Permissions and Android device features](13-permissions-and-device-features.md) | [Notes index](../README.md) | [Next: Debugging, testing, and release](15-debugging-testing-and-release.md) |
+|:--|:--:|--:|
 
