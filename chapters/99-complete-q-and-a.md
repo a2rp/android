@@ -2,6 +2,9 @@
 
 [Back to notes index](../README.md)
 
+| [Previous: All code samples](98-all-code-samples.md) | [Notes index](../README.md) | [Next: Notes index](../README.md) |
+|:--|:--:|--:|
+
 This chapter collects questions that come up while studying Android app development with Java and XML. Answers are kept short enough to review, with links to the topic notes when a deeper explanation or example is useful.
 
 ## 1. First Android app
@@ -430,5 +433,6 @@ These questions revisit the ideas that connect the chapters: keep UI state with 
 
 ---
 
-[Previous: All code samples](98-all-code-samples.md) | [Notes index](../README.md)
+| [Previous: All code samples](98-all-code-samples.md) | [Notes index](../README.md) | [Next: Notes index](../README.md) |
+|:--|:--:|--:|
 
